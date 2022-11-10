@@ -1,0 +1,15 @@
+@media screen and (max-width: 600px) {
+  .label {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .field{
+    flex-direction: column;
+  }
+  .form {
+    width: 90%;
+  }
+  .list {
+    width: 90%;
+  }
+}
