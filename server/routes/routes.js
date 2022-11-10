@@ -7,11 +7,11 @@ module.exports = router;
 
 //Post Method
 router.post('/post', async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-      );
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.header(
+    //     "Access-Control-Allow-Headers",
+    //     "Origin, X-Requested-With, Content-Type, Accept"
+    //   );
     const data = new Model({
         task: req.body.task,
         detail: req.body.detail
@@ -29,11 +29,11 @@ router.post('/post', async (req, res) => {
 
 //Get all Method
 router.get('/getAll', async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-      );
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.header(
+    //     "Access-Control-Allow-Headers",
+    //     "Origin, X-Requested-With, Content-Type, Accept"
+    //   );
     try{
         const data = await Model.find();
         res.json(data)
