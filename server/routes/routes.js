@@ -7,6 +7,7 @@ module.exports = router;
 
 //Post Method
 router.post('/post', async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     const data = new Model({
         task: req.body.task,
         detail: req.body.detail
@@ -24,6 +25,7 @@ router.post('/post', async (req, res) => {
 
 //Get all Method
 router.get('/getAll', async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     try{
         const data = await Model.find();
         res.json(data)
