@@ -2,7 +2,16 @@ import React, { useEffect } from 'react'
 import { useStateContext } from "../context/ContextProvider";
 
 const Task = () => {
-    const { data } = useStateContext();
+    const { data, setData } = useStateContext();
+
+    useEffect(() => {
+        fetch("https://avdev-todo-list-api.vercel.app/api/getAll")
+          .then((response) => response.json())
+          .then((data) => setData(data))
+          .catch((err) => {
+            console.log(err.message);
+        });
+    }, []);
 
     return (
         <div className='w-full max-w-lg p-5 mt-5 bg-slate-100 rounded-md justify-center flex flex-col items-start'>
