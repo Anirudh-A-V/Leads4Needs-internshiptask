@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/api', routes)
 
 const corsOptions ={
-    origin:'*', 
+    origin:'https://avdev-todo-list.vercel.app/', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
  }
