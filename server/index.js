@@ -36,7 +36,7 @@ const app = express();
 const mongoose = require('mongoose')
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({origin: '*'}));
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', (error) => console.log(error))
