@@ -20,6 +20,7 @@ const Task = () => {
                 headers: {
                     'Allow-Control-Allow-Origin': '*',
                     'Content-type': 'application/json; charset=UTF-8',
+                    'Access-Control-Allow-Credentials': true,
                 },
             })
             .then((response) => response.json())

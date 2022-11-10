@@ -54,6 +54,7 @@ const Inputbox = () => {
             headers: {
                 'Allow-Control-Allow-Origin': '*',
                 'Content-type': 'application/json; charset=UTF-8',
+                'Access-Control-Allow-Credentials': true,
             }
         })
             .then((res) => res.json())
