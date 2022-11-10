@@ -1,20 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import axios from 'axios';
+
 import { useStateContext } from "../context/ContextProvider";
+import './styles.css';
 
 const Task = () => {
     const { data, setData } = useStateContext();
 
+    // const fetchData = () => {
+    //     return axios.get("http://avdev-todo-list-api.vercel.app/api/getAll")
+    //         .then((response) => setData(response.data))
+    //         .catch((error) => console.log(error.message));
+    // }
+
     useEffect(() => {
-        fetch("https://avdev-todo-list-api.vercel.app/api/getAll")
-          .then((response) => response.json())
-          .then((data) => setData(data))
-          .catch((err) => {
-            console.log(err.message);
-        });
+        fetch("https://avdev-todo-list-api.vercel.app/api/getAll",
+            {
+                method: 'GET',
+                headers: {
+                    'Allow-Control-Allow-Origin': '*',
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            .then((response) => response.json())
+            .then((data) => setData(data))
+            .catch((err) => {
+                console.log(err.message);
+            });
+        // fetchData();
     }, []);
 
     return (
-        <div className='w-full max-w-lg p-5 mt-5 bg-slate-100 rounded-md justify-center flex flex-col items-start'>
+        <div className='list w-full max-w-2xl p-5 mt-5 bg-slate-100 rounded-md justify-center flex flex-col items-start'>
             {data.map((item, index) => {
                 return (
                     <>
